@@ -16,6 +16,8 @@ on:
       jira_release:
         description: "Jira release"
         type: string
+env:
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
   deploy-web-public-agile:
