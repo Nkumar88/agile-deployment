@@ -20,18 +20,7 @@ env:
   GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
-  precheck:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "repo=${{ github.repository }}"
-          if [ -z "${{ secrets.TEAMS_WEBHOOK }}" ]; then
-            echo "TEAMS_WEBHOOK is empty in caller repo"
-            exit 1
-          fi
-
   deploy-web-public-agile:
-    needs: precheck
     uses: nkumar88/devops-tools/.github/workflows/deployment.yaml@main
     with:
       helm_env: "agile"
