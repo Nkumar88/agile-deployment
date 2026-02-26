@@ -21,6 +21,10 @@ env:
 
 jobs:
   deploy-web-public-agile:
+    permissions:
+      actions: read
+      contents: read
+
     uses: nkumar88/devops-tools/.github/workflows/deployment.yaml@main
     with:
       helm_env: "agile"
